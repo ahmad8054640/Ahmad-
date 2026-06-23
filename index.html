@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أحمد عثمان - متخصص تسويق إلكتروني</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Cairo', sans-serif; background: #f5f5f5; color: #333; line-height: 1.8; overflow-x: hidden; }
+        .header { background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%); color: white; padding: 100px 20px 80px; text-align: center; position: relative; overflow: hidden; }
+        .header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255,255,255,0.05) 0%, transparent 50%); }
+        .header-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+        .header h1 { font-size: 3em; font-weight: 800; margin-bottom: 15px; letter-spacing: 1px; }
+        .header .subtitle { font-size: 1.4em; color: #e0e1dd; font-weight: 600; margin-bottom: 20px; }
+        .header .experience { font-size: 1.1em; color: #778da9; margin-top: 20px; line-height: 2; }
+        .contact-btns { margin-top: 40px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        .btn { padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px; font-size: 1.1em; }
+        .btn-primary { background: #c9a227; color: #0d1b2a; box-shadow: 0 4px 20px rgba(201,162,39,0.4); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(201,162,39,0.6); background: #d4b43a; }
+        .btn-secondary { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.4); }
+        .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.7); }
+        .offer-banner { background: linear-gradient(135deg, #c9a227, #d4b43a); color: #0d1b2a; text-align: center; padding: 30px 20px; font-size: 1.3em; font-weight: 700; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 2.2em; font-weight: 800; margin-bottom: 50px; color: #0d1b2a; position: relative; }
+        .section-title::after { content: ''; display: block; width: 100px; height: 4px; background: linear-gradient(90deg, #c9a227, #d4b43a); margin: 20px auto 0; border-radius: 2px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .service-card { background: white; border-radius: 15px; padding: 40px 30px; text-align: center; box-shadow: 0 5px 25px rgba(0,0,0,0.08); transition: all 0.3s; border-bottom: 4px solid transparent; position: relative; overflow: hidden; }
+        .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #c9a227, #d4b43a); transform: scaleX(0); transition: transform 0.3s; }
+        .service-card:hover::before { transform: scaleX(1); }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,0,0,0.15); border-bottom-color: #c9a227; }
+        .service-icon { font-size: 45px; margin-bottom: 20px; color: #415a77; }
+        .service-card h3 { font-size: 1.3em; margin-bottom: 15px; color: #0d1b2a; font-weight: 700; }
+        .service-card p { color: #666; font-size: 1em; line-height: 1.8; }
+        .portfolio-section { background: linear-gradient(135deg, #e0e1dd 0%, #f5f5f5 100%); }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 35px; }
+        .portfolio-item { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.1); transition: all 0.4s; position: relative; }
+        .portfolio-item:hover { transform: translateY(-15px); box-shadow: 0 25px 60px rgba(0,0,0,0.2); }
+        .portfolio-img { width: 100%; height: 280px; object-fit: cover; display: block; }
+        .portfolio-content { padding: 30px; }
+        .portfolio-date { display: inline-block; background: #e0e1dd; color: #415a77; padding: 5px 15px; border-radius: 20px; font-size: 0.85em; font-weight: 600; margin-bottom: 15px; }
+        .portfolio-content h3 { font-size: 1.4em; color: #0d1b2a; margin-bottom: 12px; font-weight: 700; }
+        .portfolio-content p { color: #666; font-size: 1em; line-height: 1.8; }
+        .portfolio-tag { display: inline-block; padding: 6px 18px; border-radius: 25px; font-size: 0.9em; font-weight: 600; margin-top: 15px; }
+        .tag-training { background: #e3f2fd; color: #1565c0; }
+        .tag-business { background: #fff3e0; color: #e65100; }
+        .tag-education { background: #e8f5e9; color: #2e7d32; }
+        .tag-realestate { background: #f3e5f5; color: #6a1b9a; }
+        .tag-restaurant { background: #ffebee; color: #c62828; }
+        .pricing-button-section { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, #1b263b 0%, #0d1b2a 100%); }
+        .pricing-button-section h2 { color: white; font-size: 2.2em; font-weight: 800; margin-bottom: 30px; }
+        .btn-pricing-toggle { background: linear-gradient(135deg, #c9a227, #d4b43a); color: #0d1b2a; padding: 20px 50px; border: none; border-radius: 50px; font-size: 1.3em; font-weight: 800; cursor: pointer; transition: all 0.3s; box-shadow: 0 8px 30px rgba(201,162,39,0.4); font-family: 'Cairo', sans-serif; }
+        .btn-pricing-toggle:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(201,162,39,0.6); }
+        .pricing-panel { display: none; max-width: 1200px; margin: 40px auto 0; animation: fadeIn 0.5s ease; }
+        .pricing-panel.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .pricing-card { background: white; border-radius: 20px; padding: 40px 25px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.2); transition: all 0.3s; position: relative; }
+        .pricing-card:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        .pricing-card.featured { border: 3px solid #c9a227; transform: scale(1.05); }
+        .pricing-card.featured:hover { transform: scale(1.05) translateY(-10px); }
+        .pricing-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #c9a227; color: #0d1b2a; padding: 8px 25px; border-radius: 25px; font-size: 0.95em; font-weight: 800; }
+        .pricing-card h3 { font-size: 1.5em; color: #0d1b2a; margin-bottom: 20px; font-weight: 700; }
+        .pricing-price { font-size: 3em; font-weight: 800; color: #c9a227; margin-bottom: 25px; }
+        .pricing-price span { font-size: 0.4em; color: #999; font-weight: 400; }
+        .pricing-features { list-style: none; text-align: right; margin-bottom: 30px; padding: 0 15px; }
+        .pricing-features li { padding: 10px 0; border-bottom: 1px solid #eee; color: #555; font-size: 1em; }
+        .pricing-features li::before { content: '✓'; color: #4caf50; font-weight: bold; margin-left: 10px; font-size: 1.2em; }
+        .btn-pricing { background: linear-gradient(135deg, #c9a227, #d4b43a); color: #0d1b2a; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; transition: all 0.3s; }
+        .btn-pricing:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(201,162,39,0.4); }
+        .contact-section { background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%); color: white; padding: 80px 20px; }
+        .contact-section .section-title { color: white; }
+        .contact-section .section-title::after { background: #c9a227; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 35px; text-align: center; max-width: 1000px; margin: 0 auto; }
+        .contact-item { background: rgba(255,255,255,0.08); border-radius: 20px; padding: 40px 30px; backdrop-filter: blur(10px); transition: all 0.3s; border: 1px solid rgba(255,255,255,0.1); }
+        .contact-item:hover { background: rgba(255,255,255,0.15); transform: translateY(-8px); border-color: rgba(201,162,39,0.5); }
+        .contact-item i { font-size: 45px; margin-bottom: 20px; color: #c9a227; }
+        .contact-item h3 { font-size: 1.3em; margin-bottom: 15px; font-weight: 700; }
+        .contact-item p { font-size: 1.1em; opacity: 0.9; }
+        .contact-item a { color: #c9a227; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+        .contact-item a:hover { color: #d4b43a; }
+        .footer { background: #0a1120; color: #778da9; text-align: center; padding: 40px 20px; }
+        .footer p { font-size: 1em; }
+        @media (max-width: 768px) { .header h1 { font-size: 2em; } .header .subtitle { font-size: 1.1em; } .pricing-card.featured { transform: scale(1); } .pricing-card.featured:hover { transform: scale(1) translateY(-10px); } .portfolio-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>أحمد عثمان</h1>
+            <p class="subtitle">متخصص تسويق إلكتروني وسوشيال ميديا</p>
+            <p class="experience">
+                خبرة 4 سنوات في التسويق الرقمي<br>
+                إدارة الحملات الإعلانية | تحليل البيانات | كتابة المحتوى
+            </p>
+            <div class="contact-btns">
+                <a href="tel:0119092705" class="btn btn-primary">
+                    <i class="fas fa-phone"></i> اتصل الآن
+                </a>
+                <a href="https://wa.me/249119092705" class="btn btn-secondary" target="_blank">
+                    <i class="fab fa-whatsapp"></i> واتساب
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="offer-banner">
+        <i class="fas fa-tag"></i> عرض خاص محدود: الشهر التجريبي بخصم 50% — فرصة لا تتكرر!
+    </div>
+
+    <section class="section">
+        <h2 class="section-title">خدماتي المهنية</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                <h3>تصميم البوستات</h3>
+                <p>تصاميم احترافية للبوستات والستوريات بجودة عالية تناسب هويتك التجارية وتجذب العملاء</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>إدارة الحسابات</h3>
+                <p>إدارة كاملة لحسابات سوشيال ميديا مع خطة محتوى مدروسة وتفاعل يومي احترافي</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+                <h3>إعلانات ممولة</h3>
+                <p>إعداد وإدارة حملات إعلانية ممولة على فيسبوك وإنستغرام باستهداف دقيق</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-file-alt"></i></div>
+                <h3>كتابة المحتوى</h3>
+                <p>كتابة محتوى تسويقي جاذب وكابشنات احترافية تزيد التفاعل والمبيعات</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-chart-bar"></i></div>
+                <h3>تحليل وتقارير</h3>
+                <p>تحليل إحصائيات دقيق ورفع تقارير أداء دورية لمتابعة النتائج وتحسينها</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section portfolio-section">
+        <h2 class="section-title">معرض أعمالي</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="images/1762618663008.jpg" alt="إدارة المشتريات والمخازن" class="portfolio-img">
+                <div class="portfolio-content">
+                    <span class="portfolio-date">يونيو 2023</span>
+                    <h3>إدارة المشتريات والمخازن</h3>
+                    <p>تصميم إعلان احترافي لدورة تدريبية متخصصة في إدارة المشتريات والمخازن للشركات</p>
+                    <span class="portfolio-tag tag-business">أعمال وإدارة</span>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="images/1762618585781.jpg" alt="كيف أذاكر لأبني بفعالية" class="portfolio-img">
+                <div class="portfolio-content">
+                    <span class="portfolio-date">سبتمبر 2023</span>
+                    <h3>كيف أذاكر لأبني بفعالية</h3>
+                    <p>تصميم إعلان دورة تعليمية متكاملة مع صورة المتحدثة ومحتوى تفاعلي جذاب</p>
+                    <span class="portfolio-tag tag-education">تعليم وتربية</span>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="images/1759526591308.jpg" alt="فيلا أي فيل" class="portfolio-img">
+                <div class="portfolio-content">
+                    <span class="portfolio-date">فبراير 2024</span>
+                    <h3>فيلا سكنية فاخرة - أي فيل</h3>
+                    <p>تصميم عقاري ترويجي فاخر يبرز الفخامة والرقي لمجمع سكني متكامل</p>
+                    <span class="portfolio-tag tag-realestate">عقارات</span>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="images/مطعم%20الاكيل2_20260617_193251_٠٠٠٠.png" alt="مطعم الأكيل" class="portfolio-img">
+                <div class="portfolio-content">
+                    <span class="portfolio-date">مايو 2026</span>
+                    <h3>مطعم الأكيل</h3>
+                    <p>تصميم دعائي متكامل لمطعم متخصص في المأكولات الشعبية الأصيلة</p>
+                    <span class="portfolio-tag tag-restaurant">مطاعم</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-button-section">
+        <h2>الباقات والأسعار</h2>
+        <button class="btn-pricing-toggle" onclick="togglePricing()">
+            <i class="fas fa-eye"></i> اضغط هنا لعرض الباقات والأسعار
+        </button>
+
+        <div class="pricing-panel" id="pricingPanel">
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>باقة البداية</h3>
+                    <div class="pricing-price">250 <span>جنيه</span></div>
+                    <ul class="pricing-features">
+                        <li>3 تصاميم احترافية</li>
+                        <li>2 ستوري</li>
+                        <li>تسليم خلال 3 أيام</li>
+                        <li>تعديل واحد مجاني</li>
+                    </ul>
+                    <a href="https://wa.me/00249119092705" class="btn-pricing" target="_blank">اطلب الآن</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">الأكثر طلباً</div>
+                    <h3>باقة النمو</h3>
+                    <div class="pricing-price">1000 <span>جنيه/شهر</span></div>
+                    <ul class="pricing-features">
+                        <li>إدارة حساب كامل</li>
+                        <li>12 بوست + 8 ستوري</li>
+                        <li>رد على التعليقات</li>
+                        <li>خطة محتوى شهرية</li>
+                        <li>تقرير أداء شهري</li>
+                    </ul>
+                    <a href="https://wa.me/249119092705" class="btn-pricing" target="_blank">اطلب الآن</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>باقة الاحتراف</h3>
+                    <div class="pricing-price">2000 <span>جنيه/شهر</span></div>
+                    <ul class="pricing-features">
+                        <li>إدارة + إعلانات ممولة</li>
+                        <li>20 بوست + 15 ستوري</li>
+                        <li>حملتان إعلانيتان</li>
+                        <li>تقارير أسبوعية</li>
+                        <li>استشارة تسويقية</li>
+                    </ul>
+                    <a href="https://wa.me/249119092705" class="btn-pricing" target="_blank">اطلب الآن</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>الباقة الكاملة</h3>
+                    <div class="pricing-price">6000 <span>جنيه/شهر</span></div>
+                    <ul class="pricing-features">
+                        <li>كل ما في باقة الاحتراف</li>
+                        <li>30 بوست + 25 ستوري</li>
+                        <li>4 حملات إعلانية</li>
+                        <li>تقارير أسبوعية مفصلة</li>
+                        <li>استشارة أسبوعية</li>
+                        <li>أولوية في التسليم</li>
+                    </ul>
+                    <a href="https://wa.me/00249119092705" class="btn-pricing" target="_blank">اطلب الآن</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <h2 class="section-title">تواصل معي</h2>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <h3>الهاتف</h3>
+                <p><a href="tel:1108546397">1108546397</a></p>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-whatsapp"></i>
+                <h3>واتساب</h3>
+                <p><a href="https://wa.me/00249119092705" target="_blank">+249 11 909 2705</a></p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <h3>البريد الإلكتروني</h3>
+                <p><a href="mailto:ahmedibnosman@gmail.com">ahmedibnosman@gmail.com</a></p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>الموقع</h3>
+                <p>مصر - العاشر من رمضان</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>جميع الحقوق محفوظة © 2024 | أحمد عثمان - متخصص تسويق إلكتروني</p>
+    </footer>
+
+    <script>
+        function togglePricing() {
+            const panel = document.getElementById('pricingPanel');
+            const btn = document.querySelector('.btn-pricing-toggle');
+
+            if (panel.classList.contains('active')) {
+                panel.classList.remove('active');
+                btn.innerHTML = '<i class="fas fa-eye"></i> اضغط هنا لعرض الباقات والأسعار';
+            } else {
+                panel.classList.add('active');
+                btn.innerHTML = '<i class="fas fa-eye-slash"></i> إخفاء الباقات';
+                panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    </script>
+</body>
+  </html>
